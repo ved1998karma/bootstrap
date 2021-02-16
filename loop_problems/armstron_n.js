@@ -5,28 +5,42 @@
 // Expected Output :
 // 153 is an Armstrong number.
 
-var n=parseInt(prompt("Enter a number:"))
-var sum=0
-var temp=n
-var rem=0
+var inpt = parseInt(prompt("Enter a number:"))
+var rem = 0
+var original = inpt
+var count = original.toString().length
+// console.log(count)
+var sum = 0
 
-// function pow(base,power){
-//     power=n.toSri
-//     for(var j=1;j<=power;j++){
-//         mul=mul*base
-//     }
-//     return mul
-// }
 
-for(var i=1;temp>0;i++){
-    rem=temp % 10
-    sum=sum+(rem*rem*rem)
-    temp=(temp-(temp%10))/10
+//Multiply again & again
+function multi(x, y) {//3,3  5,3
+    var i=1
+    var mul = 1
+    while (i <= y) {
+        mul *= x
+        i++
+    }
+    return mul
 }
 
-if(sum==n){
-    console.log("Yes",n,"is a Armstrong")
+
+//Checking Armstrongs Properties
+
+for (var j = 1; j <= count; j++) {
+
+rem = inpt % 10                   //  3,5
+sum = sum + multi(rem, count)    //  27,125+27
+inpt = (inpt - (inpt % 10)) / 10   //  15,1,
+
 }
-else{
-    console.log("No",n,"is not a Armstrong")
+
+
+
+//Comparing Armstrong Conditionssss And Printing result
+if (sum == original) {
+    console.log("Yes", original, "is an Armstrong")
+}
+else {
+    console.log("No", original, "is not a Armstrong")
 }
